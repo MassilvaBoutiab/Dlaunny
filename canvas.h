@@ -23,7 +23,6 @@ public:
     void addTriangle(int id0,int id1,int id2,const QColor &color);
     void clear();
     void reScale();
-    void flip(Triangle &t1,Triangle &t2);
     inline int getSizeofV() { return vertices.size();}
     inline int getSizeofT() { return triangles.size();}
     bool checkDelaunay();

@@ -27,39 +27,3 @@ void Triangle::drawCircle(QPainter &painter) {
     painter.setBrush(Qt::NoBrush);
     painter.drawEllipse(circumCenter.x-circumRadius,circumCenter.y-circumRadius,2.0*circumRadius,2.0*circumRadius);
 }
-
-void Triangle::swip()
-{
-
-    qDebug()<<"here we want to flip";
-   if(&ptr[0]==&flipNeighbhor->ptr[0]){
-        qDebug()<<"t1.ptr[0]==t2.ptr[0]";
-       /*if(t1->ptr[1]==t2->ptr[1]){
-           t1->ptr[1]=t2->ptr[2];
-           t2->ptr[0]=t1->ptr[2];
-
-       }else{
-           t1->ptr[1]=t2->ptr[1];
-           t2->ptr[0]=t1->ptr[2];
-       }*/
-   } else if(&ptr[0]==&flipNeighbhor->ptr[1]){
-       qDebug()<<"t1.ptr[0]==t2.ptr[1]";
-     /*  if(t1->ptr[1]==t2->ptr[0]){
-           t1->ptr[1]=t2->ptr[2];
-           t2->ptr[1]=t1->ptr[2];
-       }else{
-           t1->ptr[1]=t2->ptr[0];
-           t2->ptr[1]=t1->ptr[2];
-       }*/
-   }else if(&ptr[0]== &flipNeighbhor->ptr[2]){
-        qDebug()<<"t1.ptr[0]==t2.ptr[2]";
-     /*  if(t1->ptr[1]==t2->ptr[0]){
-           t1->ptr[1]=t2->ptr[0];
-           t2->ptr[2]=t1->ptr[2];
-       }else{
-           t1->ptr[1]=t2->ptr[1];
-           t2->ptr[2]=t1->ptr[2];
-       }*/
-   }
-
-}

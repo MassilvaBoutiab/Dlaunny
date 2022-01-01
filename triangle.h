@@ -85,7 +85,6 @@ public:
     Triangle& getFlipNeighbhoor(){
         return *flipNeighbhor;
     }
-    void swip();
 };
 
 #endif // TRIANGLE_H

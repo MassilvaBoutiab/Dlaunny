@@ -128,8 +128,6 @@ void Canvas::mousePressEvent(QMouseEvent *)
             qDebug()<<"here is the selected triangle";
             if(tri.isTriangleFlippable()){
                  qDebug()<<"here is the triangle is flippable";
-                //tri.swip();
-                 flip(tri,tri.getFlipNeighbhoor());
             }
         }
     }
@@ -145,44 +143,6 @@ void Canvas::reScale() {
     scale=qMin(float(newWidth)/float(dataWidth),float(newHeight)/float(dataHeight)  );
     origin.setX(box.first.x);
     origin.setY(box.first.y);
-}
-
-void Canvas::flip(Triangle &t1, Triangle &t2)
-{
-    qDebug()<<"here we want to flip";
-
-   if(&(t1.ptr[0])==&(t2.ptr[0])){
-        qDebug()<<"t1.ptr[0]==t2.ptr[0]";
-       /*if(t1->ptr[1]==t2->ptr[1]){
-           t1->ptr[1]=t2->ptr[2];
-           t2->ptr[0]=t1->ptr[2];
-
-       }else{
-           t1->ptr[1]=t2->ptr[1];
-           t2->ptr[0]=t1->ptr[2];
-       }*/
-   } else if(&(t1.ptr[0])==&(t2.ptr[1])){
-       qDebug()<<"t1.ptr[0]==t2.ptr[1]";
-     /*  if(t1->ptr[1]==t2->ptr[0]){
-           t1->ptr[1]=t2->ptr[2];
-           t2->ptr[1]=t1->ptr[2];
-       }else{
-           t1->ptr[1]=t2->ptr[0];
-           t2->ptr[1]=t1->ptr[2];
-       }*/
-   }else if(&(t1.ptr[0])== &(t2.ptr[2])){
-        qDebug()<<"t1.ptr[0]==t2.ptr[2]";
-     /*  if(t1->ptr[1]==t2->ptr[0]){
-           t1->ptr[1]=t2->ptr[0];
-           t2->ptr[2]=t1->ptr[2];
-       }else{
-           t1->ptr[1]=t2->ptr[1];
-           t2->ptr[2]=t1->ptr[2];
-       }*/
-   }else{
-       qDebug()<<"nothing works";
-   }
-
 }
 
 bool Canvas::checkDelaunay()
