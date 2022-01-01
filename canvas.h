@@ -28,11 +28,17 @@ public:
     bool checkDelaunay();
     Vector2D findNeighbhoor(Vector2D first,Vector2D second, Vector2D third);
     Triangle findTriangle(Vector2D first,Vector2D second, Vector2D third);
+    //test
+    void flip(Triangle *T);
+    //test
 signals:
 
 private:
     QPair<Vector2D,Vector2D> getBox();
-
+    //test
+    Vector2D *temp[4];
+    bool diff[4]={false,false,false,false};
+    //test
     QVector<Triangle> triangles;
     QVector<Vector2D> vertices;
     float scale=0.5;

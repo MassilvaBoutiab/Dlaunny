@@ -128,6 +128,8 @@ void Canvas::mousePressEvent(QMouseEvent *)
             qDebug()<<"here is the selected triangle";
             if(tri.isTriangleFlippable()){
                  qDebug()<<"here is the triangle is flippable";
+                 flip(&tri);
+                 //here i want to delete the flippable triabgle and this triangle to create two new triangles
             }
         }
     }
@@ -222,8 +224,44 @@ Triangle Canvas::findTriangle(Vector2D first, Vector2D second, Vector2D third)
         }
     }
 }
+//test
 
 
+void Canvas::flip(Triangle *T)
+{
+    //in here i will try save the points of a triangle in a teemporary array so that i can use them later
+    //to create new triangles
+    temp[0]=T->ptr[0];
+    temp[1]=T->ptr[1];
+    temp[2]=T->ptr[2];
+    diff[3]=true;
+    if(T->getFlipNeighbhoor().ptr[0]==temp[0]){
+        diff[2]=true;
+        if(T->getFlipNeighbhoor().ptr[1]==temp[1]){
+            temp[3]=T->getFlipNeighbhoor().ptr[2];
+        }else if(T->getFlipNeighbhoor().ptr[2]==temp[1]){
+            temp[3]=T->getFlipNeighbhoor().ptr[1];
+        }
+    }else if(T->getFlipNeighbhoor().ptr[1]==temp[0]){
+        diff[2]=true;
+        if(T->getFlipNeighbhoor().ptr[0]==temp[1]){
+            temp[3]=T->getFlipNeighbhoor().ptr[2];
+        }else if(T->getFlipNeighbhoor().ptr[2]==temp[1]){
+            temp[3]=T->getFlipNeighbhoor().ptr[0];
+        }
+    }else if(T->getFlipNeighbhoor().ptr[2]==temp[0]){
+        diff[2]=true;
+        if(T->getFlipNeighbhoor().ptr[0]==temp[1]){
+            temp[3]=T->getFlipNeighbhoor().ptr[1];
+        }else if(T->getFlipNeighbhoor().ptr[1]==temp[1]){
+            temp[3]=T->getFlipNeighbhoor().ptr[0];
+        }
+    }
+
+
+}
+
+//test
 
 void Canvas::mouseMoveEvent(QMouseEvent *event) {
     float mouseX=float(event->pos().x()-10)/scale+origin.x();
