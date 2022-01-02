@@ -5,6 +5,7 @@
 
 class Vector2D {
 public:
+    int id;
     float x,y;
     Vector2D(float p_x,float p_y):x(p_x),y(p_y) {};
     Vector2D() { x=y=0.0; }
